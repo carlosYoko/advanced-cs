@@ -38,3 +38,8 @@ Operation<double> addDouble = (a, b) => a + b;
 Console.WriteLine(addDouble(5.3, 2.4));
 
 delegate T Operation<T>(T a, T b);
+
+
+// Restriction type in generics
+delegate T Operation2<T>(T a, T b) where T : struct;
+delegate T Operation3<T>(T a, T b) where T : class;
