@@ -32,17 +32,33 @@ var vehicle = new Vehicle(1000);
 var bike = new Bike("Honda", 600);
 ShowEngine(vehicle);
 ShowEngine(bike);
+ShowInfo(bike);
 
 void ShowEngine<T>(T vehicle) where T : Vehicle
 {
     Console.WriteLine(vehicle.Engine);
 }
 
-ShowInfo(bike);
-
 void ShowInfo<T>(T element) where T : IInfo
 {
     Console.WriteLine(element.GetInfo());
+}
+
+
+// Restriction in constructor
+var pool = new ObjectPool<Clock>(3);
+
+while (pool.Count > 0)
+{
+    var clock = pool.Get();
+    Console.WriteLine(clock.Date);
+}
+
+var pool2 = new ObjectPool<RandomCustom>(3);
+while (pool2.Count > 0)
+{
+    var random = pool2.Get();
+    Console.WriteLine(random.Number);
 }
 
 
