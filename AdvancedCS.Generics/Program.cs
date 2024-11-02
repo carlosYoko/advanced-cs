@@ -27,6 +27,25 @@ void Show<T>(IRepository<T> repository)
 }
 
 
+// Restriction classes and interfaces
+var vehicle = new Vehicle(1000);
+var bike = new Bike("Honda", 600);
+ShowEngine(vehicle);
+ShowEngine(bike);
+
+void ShowEngine<T>(T vehicle) where T : Vehicle
+{
+    Console.WriteLine(vehicle.Engine);
+}
+
+ShowInfo(bike);
+
+void ShowInfo<T>(T element) where T : IInfo
+{
+    Console.WriteLine(element.GetInfo());
+}
+
+
 // Generics in delegates
 Operation<string> concat = (a, b) => a + " " + b;
 Console.WriteLine(concat("Hello", "World"));
