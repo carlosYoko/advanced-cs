@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdvancedCS.ExtensionMethods
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdvancedCS.Reference", "AdvancedCS.Reference\AdvancedCS.Reference.csproj", "{5F078CBE-8DC3-455C-81CE-CD5F3B771DE6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdvancedCS.Inmutability", "AdvancedCS.Inmutability\AdvancedCS.Inmutability.csproj", "{44378040-FD32-4B0E-80EB-2F2CC7B69292}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdvancedCS.Inmutability", "AdvancedCS.Inmutability\AdvancedCS.Inmutability.csproj", "{44378040-FD32-4B0E-80EB-2F2CC7B69292}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdvancedCS.Records", "AdvancedCS.Records\AdvancedCS.Records.csproj", "{7C943630-4562-4034-BF76-80DCE74EC2E6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{44378040-FD32-4B0E-80EB-2F2CC7B69292}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{44378040-FD32-4B0E-80EB-2F2CC7B69292}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{44378040-FD32-4B0E-80EB-2F2CC7B69292}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C943630-4562-4034-BF76-80DCE74EC2E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C943630-4562-4034-BF76-80DCE74EC2E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C943630-4562-4034-BF76-80DCE74EC2E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C943630-4562-4034-BF76-80DCE74EC2E6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
