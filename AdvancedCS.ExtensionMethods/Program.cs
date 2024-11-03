@@ -26,6 +26,9 @@ List<string> names = ["Carlos", "Pepe"];
 string name = "Carlos";
 Console.WriteLine(name.Exists(names));
 
+// Generics with restriction in extension methods
+Console.WriteLine(name.IsOn(names));
+
 
 
 // Basic extension method
@@ -71,3 +74,21 @@ public static class ListExtensions
         return false;
     }
 }
+
+// Generics with restriction in extension methods
+public static class ListExtensionsWithRestriction
+{
+    public static bool IsOn<T>(this T element, List<T> list) where T : class
+    {
+        foreach (T item in list)
+        {
+            if (item!.Equals(element))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+}
+
