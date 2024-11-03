@@ -72,6 +72,11 @@ void ShowInfoAndEngine<T>(T element) where T : Bike, IInfo
 }
 
 
+// Covariance
+IVehicleCreator<Vehicle> bikeCreator = new NakedCreator();
+var ducati = bikeCreator.Create(1000);
+
+
 // Generics in delegates
 Operation<string> concat = (a, b) => a + " " + b;
 Console.WriteLine(concat("Hello", "World"));
