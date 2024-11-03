@@ -29,6 +29,11 @@ Console.WriteLine(name.Exists(names));
 // Generics with restriction in extension methods
 Console.WriteLine(name.IsOn(names));
 
+// Extension methods in interfaces
+IVehicle bike = new Bike() { Engine = 1000 };
+IVehicle car = new Car() { Engine = 2200 };
+Console.WriteLine(bike.GetDescription());
+Console.WriteLine(car.GetDescription());
 
 
 // Basic extension method
@@ -90,5 +95,32 @@ public static class ListExtensionsWithRestriction
 
         return false;
     }
+}
+
+// Extension methods in interfaces
+public interface IVehicle
+{
+    public decimal Engine { get; }
+}
+
+public static class VehicleExtensions
+{
+    public static string GetDescription(this IVehicle vehicle)
+
+    {
+        return $"El vehiculo tipo {vehicle.GetType().Name} tiene {vehicle.Engine} cc";
+    }
+}
+
+public class Bike : IVehicle
+{
+    public decimal Engine { get; set; }
+
+}
+
+public class Car : IVehicle
+{
+    public decimal Engine { get; set; }
+
 }
 
