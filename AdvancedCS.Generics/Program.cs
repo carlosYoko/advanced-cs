@@ -62,6 +62,16 @@ while (pool2.Count > 0)
 }
 
 
+// Multiple restrictions
+ShowInfoAndEngine(bike);
+
+void ShowInfoAndEngine<T>(T element) where T : Bike, IInfo
+{
+    Console.WriteLine("ShowInfoAndEngine: " + element.GetInfo());
+    Console.WriteLine("ShowInfoAndEngine: " + element.Engine);
+}
+
+
 // Generics in delegates
 Operation<string> concat = (a, b) => a + " " + b;
 Console.WriteLine(concat("Hello", "World"));
