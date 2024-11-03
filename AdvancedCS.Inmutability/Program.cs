@@ -6,6 +6,12 @@ Console.WriteLine(Calculator.PI); ;
 var brand = new Brand("Honda");
 var brandName = brand.Name;
 
+// Inmutable list
+List<string> bikeList = new List<string>() { "CBR", "CBF" };
+var bikes = new Bike(bikeList);
+
+
+// ## Definitions and implementations ##
 
 // Inmutability
 public class Calculator
@@ -23,6 +29,7 @@ public class Calculator
 public class Brand
 {
     public string Name { get; }
+
     public Brand(string name)
     {
         Name = name;
@@ -30,3 +37,12 @@ public class Brand
 }
 
 // Inmutable list
+public class Bike
+{
+    public IReadOnlyList<string> Model { get; }
+
+    public Bike(List<string> model)
+    {
+        Model = model;
+    }
+}
