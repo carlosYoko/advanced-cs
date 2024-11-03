@@ -1,4 +1,8 @@
-﻿// Inmutability 
+﻿// ##########
+// ## Uses ##
+// ##########
+
+// Inmutability 
 var calculator = new Calculator(15);
 Console.WriteLine(Calculator.PI); ;
 
@@ -10,8 +14,15 @@ var brandName = brand.Name;
 List<string> bikeList = new List<string>() { "CBR", "CBF" };
 var bikes = new Bike(bikeList);
 
+// With pattern
+var carlos = new Person("Carlos");
+var carlos2 = carlos.With("Pepe");
+Console.WriteLine(carlos2.Name);
 
+
+// #####################################
 // ## Definitions and implementations ##
+// #####################################
 
 // Inmutability
 public class Calculator
@@ -44,5 +55,21 @@ public class Bike
     public Bike(List<string> model)
     {
         Model = model;
+    }
+}
+
+// With pattern
+public class Person
+{
+    public string Name { get; }
+
+    public Person(string name)
+    {
+        Name = name;
+    }
+
+    public Person With(string? name = null)
+    {
+        return new Person(name ?? this.Name);
     }
 }
