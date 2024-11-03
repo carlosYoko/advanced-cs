@@ -35,6 +35,18 @@ IVehicle car = new Car() { Engine = 2200 };
 Console.WriteLine(bike.GetDescription());
 Console.WriteLine(car.GetDescription());
 
+// Extension methods for chain funcionality
+var ship = new Ship() { Engine = 1000, Year = 2023 };
+ship.SetEngine(3000).SetYear(2024);
+Console.WriteLine(ship.Year + " " + ship.Engine);
+
+
+
+
+
+
+
+
 
 // Basic extension method
 public static class IntOperations
@@ -124,3 +136,24 @@ public class Car : IVehicle
 
 }
 
+// Extension methods for chain funcionality
+public class Ship : IVehicle
+{
+    public decimal Engine { get; set; }
+    public int Year { get; set; }
+}
+
+public static class ShipExtensions
+{
+    public static Ship SetEngine(this Ship ship, decimal engine)
+    {
+        ship.Engine = engine;
+        return ship;
+    }
+
+    public static Ship SetYear(this Ship ship, int year)
+    {
+        ship.Year = year;
+        return ship;
+    }
+}
