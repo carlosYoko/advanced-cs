@@ -77,6 +77,12 @@ IVehicleCreator<Vehicle> bikeCreator = new NakedCreator();
 var ducati = bikeCreator.Create(1000);
 
 
+// Contraovariance
+IShow<Bike> bikeShow = new BikeShow();
+var cbr = new Bike("CBR", 1000);
+bikeShow.Show(cbr);
+
+
 // Generics in delegates
 Operation<string> concat = (a, b) => a + " " + b;
 Console.WriteLine(concat("Hello", "World"));
