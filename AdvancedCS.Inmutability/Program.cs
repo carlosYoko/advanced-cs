@@ -19,6 +19,14 @@ var carlos = new Person("Carlos");
 var carlos2 = carlos.With("Pepe");
 Console.WriteLine(carlos2.Name);
 
+// Anonim objects
+var people = new
+{
+    Name = "Carlos",
+    Age = 38,
+    Country = "Spain"
+};
+
 
 // #####################################
 // ## Definitions and implementations ##
