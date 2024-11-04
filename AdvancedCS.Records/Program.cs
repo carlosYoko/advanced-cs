@@ -35,6 +35,10 @@ Console.WriteLine(n);
 var barcelona = new City("Barcelona") { Population = 1_600_000 };
 barcelona.Population = 1_666_000;
 
+// 'with' Expression
+var bikeOriginal = new BikeComparation("Yamaha", 1000, new Model("R1"));
+var bikeWith = bikeOriginal with { Engine = 1090 };
+
 
 
 // ##################
