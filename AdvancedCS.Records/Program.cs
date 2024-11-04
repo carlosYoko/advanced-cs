@@ -31,6 +31,11 @@ Console.WriteLine(model.Name);
 var (n, _, _) = bikeComparation;
 Console.WriteLine(n);
 
+// Records with mutable props
+var barcelona = new City("Barcelona") { Population = 1_600_000 };
+barcelona.Population = 1_666_000;
+
+
 
 // ##################
 // # Implementation #
@@ -42,3 +47,9 @@ record Bike(string Brand, double Engine);
 // Comparation2
 record BikeComparation(string Brand, double Engine, Model model);
 record Model(string Name);
+
+// Rcords with mutable props
+record City(string Name)
+{
+    public int Population { get; set; }
+}
