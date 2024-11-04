@@ -22,6 +22,15 @@ var bikeComparation = new BikeComparation("HONDA", 1000, new Model("CBR"));
 var bikeComparation2 = new BikeComparation("HONDA", 1000, new Model("CBR"));
 Console.WriteLine(bikeComparation == bikeComparation2); // True
 
+// Deconstructing
+var (brand, engine, model) = bikeComparation;
+Console.WriteLine(brand);
+Console.WriteLine(engine);
+Console.WriteLine(model.Name);
+
+var (n, _, _) = bikeComparation;
+Console.WriteLine(n);
+
 
 // ##################
 // # Implementation #
