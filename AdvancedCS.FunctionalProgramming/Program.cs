@@ -10,9 +10,12 @@ someSum(2, 4);
 var delay = Closure.DelayExecuter(3000, () => Console.WriteLine("Funcion ejecutandose"));
 delay();
 
-// Map
+// #####################
+// # Extension methods #
+// #####################
 List<int> numbers = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
+// Map
 var stringNumbers = numbers.MyMap<int, string>(e => $"El numero es {e}");
 foreach (var i in stringNumbers)
 {
@@ -20,10 +23,12 @@ foreach (var i in stringNumbers)
 }
 
 // Filter
-List<int> numbers2 = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-
-var numbersEven = numbers2.MyFilter(e => e % 2 == 0);
+var numbersEven = numbers.MyFilter(e => e % 2 == 0);
 foreach (var i in numbersEven)
 {
     Console.WriteLine(i);
 }
+
+// Reduce
+var total = numbers.MyReduce((acc, cur) => acc + cur, 0);
+Console.WriteLine(total);

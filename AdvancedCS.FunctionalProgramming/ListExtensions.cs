@@ -25,5 +25,18 @@
 
             return lstResult;
         }
+
+        public static TOutput MyReduce<TInput, TOutput>(this List<TInput> lst, Func<TOutput, TInput, TOutput> fn, TOutput initialValue)
+        {
+            TOutput result = initialValue;
+
+            foreach (TInput item in lst)
+            {
+                result = fn(result, item);
+            }
+
+            return result;
+        }
+
     }
 }
