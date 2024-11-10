@@ -129,3 +129,19 @@ var mem = Memoization.Mem(multX5);
 
 Console.WriteLine(mem(2));
 Console.WriteLine(mem(2));
+
+// Async Memoization II
+var getUrl = async (string url) =>
+{
+    using (var client = new HttpClient())
+    {
+        var response = await client.GetAsync(url);
+        var responseBody = await response.Content.ReadAsStringAsync();
+        return responseBody;
+    }
+};
+var memAsync = Memoization.MemAsync(getUrl);
+Console.WriteLine(await memAsync(url + "/1"));
+Console.WriteLine(await memAsync(url + "/1"));
+Console.WriteLine(await memAsync(url + "/1"));
+

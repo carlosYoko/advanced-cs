@@ -69,5 +69,25 @@
             };
         }
 
+        public static Func<TInput, Task<TOutput>> MemAsync<TInput, TOutput>(Func<TInput, Task<TOutput>> func)
+        {
+            var cache = new Dictionary<TInput, TOutput>();
+
+            return async (key) =>
+            {
+                if (cache.ContainsKey(key))
+                {
+                    Console.WriteLine($"Cacheado: {key}");
+                    return cache[key];
+                }
+
+                Console.WriteLine($"Cacheando por primera vez: {key}");
+                TOutput value = await func(key);
+                cache[key] = value;
+
+                return value;
+            };
+        }
+
     }
 }
