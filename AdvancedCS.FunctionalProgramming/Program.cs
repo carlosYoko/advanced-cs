@@ -72,3 +72,9 @@ var numbersXPipeGenerics = Functions.PipeGenerics(numbers,
                                         (lst) => lst.MyMap((e) => e * 2),
                                         (lst) => lst.MyMap((e) => e - 1));
 numbersXPipeGenerics.ForEach(Console.WriteLine);
+
+// Pipe generics with several function types
+var numberXPipeGenerics = numbers.PipeSeveralTypes(lst => lst.MyMap(e => e * 2))
+                                    .PipeSeveralTypes(lst => lst.MyMap(e => e - 1))
+                                    .PipeSeveralTypes(lst => lst.MyReduce((acc, cur) => acc + cur, 0));
+Console.WriteLine(numberXPipeGenerics);

@@ -25,5 +25,10 @@
 
             return result;
         }
+
+        public static TResult PipeSeveralTypes<TInput, TResult>(this TInput input, Func<TInput, TResult> func)
+        {
+            return func(input);
+        }
     }
 }
