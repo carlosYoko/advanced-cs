@@ -23,6 +23,7 @@ foreach (var i in stringNumbers)
     Console.WriteLine(i);
 }
 
+
 // Filter
 var numbersEven = numbers.MyFilter(e => e % 2 == 0);
 foreach (var i in numbersEven)
@@ -30,9 +31,11 @@ foreach (var i in numbersEven)
     Console.WriteLine(i);
 }
 
+
 // Reduce
 var total = numbers.MyReduce((acc, cur) => acc + cur, 0);
 Console.WriteLine(total);
+
 
 // Composition
 Func<double, double, double> add = (a, b) => a + b;
@@ -55,6 +58,7 @@ Func<List<int>, List<string>> numbersMax5AndMyToString = (lst) => ListExtensions
 var result3 = numbersMax5AndMyToString(numbers);
 result3.ForEach(Console.WriteLine);
 
+
 // Pipe
 Func<string, string> removeSpace = (s) => s.Replace(" ", "");
 Func<string, string> firstCapital = (s) => char.ToUpper(s[0]) + s.Substring(1);
@@ -63,6 +67,7 @@ Func<string, string> removeNumbers = (s) => Regex.Replace(s, @"\d", "");
 string text = "car234234 lo232323 234234s";
 var cleanText = Functions.PipeStrings(text, removeSpace, firstCapital, removeNumbers);
 Console.WriteLine(cleanText);
+
 
 // Pipe generics
 var cleanText2 = Functions.PipeGenerics(text, removeSpace, firstCapital, removeNumbers);
@@ -73,8 +78,31 @@ var numbersXPipeGenerics = Functions.PipeGenerics(numbers,
                                         (lst) => lst.MyMap((e) => e - 1));
 numbersXPipeGenerics.ForEach(Console.WriteLine);
 
+
 // Pipe generics with several function types
 var numberXPipeGenerics = numbers.PipeSeveralTypes(lst => lst.MyMap(e => e * 2))
                                     .PipeSeveralTypes(lst => lst.MyMap(e => e - 1))
                                     .PipeSeveralTypes(lst => lst.MyReduce((acc, cur) => acc + cur, 0));
 Console.WriteLine(numberXPipeGenerics);
+
+
+// Currying
+Func<string, Func<string, string>> MyConcat()
+{
+    return a => b => a + " " + b;
+}
+
+var myConcat = MyConcat();
+var myConcatWithHi = myConcat("Hello");
+var myCocncatWithWorld = myConcatWithHi("World");
+Console.WriteLine(myCocncatWithWorld);
+
+Func<decimal, Func<decimal, Func<decimal, decimal>>> CalculateTotal = basePrice => tax => discount => (basePrice + (basePrice * tax) - discount);
+var basePrice = 100;
+var tax = 0.21m;
+var discount = 5;
+
+var calculateWithBasePrice = CalculateTotal(basePrice);
+var calculateWithTax = calculateWithBasePrice(tax);
+var amount = calculateWithTax(discount);
+Console.WriteLine(amount);
