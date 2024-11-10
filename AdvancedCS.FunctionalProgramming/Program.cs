@@ -106,3 +106,10 @@ var calculateWithBasePrice = CalculateTotal(basePrice);
 var calculateWithTax = calculateWithBasePrice(tax);
 var amount = calculateWithTax(discount);
 Console.WriteLine(amount);
+
+
+// Memoization
+var myPow = Memoization.MyPow(2);
+Console.WriteLine(myPow(2));
+Console.WriteLine(myPow(2));
+Console.WriteLine(myPow(2));
