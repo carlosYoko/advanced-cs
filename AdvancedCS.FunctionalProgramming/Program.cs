@@ -63,3 +63,12 @@ Func<string, string> removeNumbers = (s) => Regex.Replace(s, @"\d", "");
 string text = "car234234 lo232323 234234s";
 var cleanText = Functions.PipeStrings(text, removeSpace, firstCapital, removeNumbers);
 Console.WriteLine(cleanText);
+
+// Pipe generics
+var cleanText2 = Functions.PipeGenerics(text, removeSpace, firstCapital, removeNumbers);
+Console.WriteLine(cleanText2);
+
+var numbersXPipeGenerics = Functions.PipeGenerics(numbers,
+                                        (lst) => lst.MyMap((e) => e * 2),
+                                        (lst) => lst.MyMap((e) => e - 1));
+numbersXPipeGenerics.ForEach(Console.WriteLine);
