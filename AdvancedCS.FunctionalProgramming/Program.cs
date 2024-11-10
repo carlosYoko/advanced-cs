@@ -1,4 +1,5 @@
 ﻿using AdvancedCS.FunctionalProgramming;
+using System.Text.RegularExpressions;
 
 // Closures
 var sum = Closure.SumClosure();
@@ -53,3 +54,12 @@ Func<List<int>, List<string>> numbersMax5AndMyToString = (lst) => ListExtensions
 
 var result3 = numbersMax5AndMyToString(numbers);
 result3.ForEach(Console.WriteLine);
+
+// Pipe
+Func<string, string> removeSpace = (s) => s.Replace(" ", "");
+Func<string, string> firstCapital = (s) => char.ToUpper(s[0]) + s.Substring(1);
+Func<string, string> removeNumbers = (s) => Regex.Replace(s, @"\d", "");
+
+string text = "car234234 lo232323 234234s";
+var cleanText = Functions.PipeStrings(text, removeSpace, firstCapital, removeNumbers);
+Console.WriteLine(cleanText);
