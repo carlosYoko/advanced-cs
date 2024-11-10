@@ -32,3 +32,24 @@ foreach (var i in numbersEven)
 // Reduce
 var total = numbers.MyReduce((acc, cur) => acc + cur, 0);
 Console.WriteLine(total);
+
+// Composition
+Func<double, double, double> add = (a, b) => a + b;
+Func<double, double> mulX2 = (a) => a * 2;
+Func<double, double, double> mul = (a, b) => a * b;
+
+Func<double, double, double> addAndMulX2 = (a, b) => mulX2(add(a, b));
+Func<double, double, double, double> addAndMul = (a, b, c) => mul(add(a, b), c);
+
+var result = addAndMulX2(10, 5);
+var result2 = addAndMul(10, 5, 10);
+
+Console.WriteLine(result);
+Console.WriteLine(result2);
+
+Func<int, string> myToString = (e) => $"Numero {e}";
+Func<int, bool> max5 = (e) => e > 5;
+Func<List<int>, List<string>> numbersMax5AndMyToString = (lst) => ListExtensions.MyMap(ListExtensions.MyFilter(lst, max5), myToString);
+
+var result3 = numbersMax5AndMyToString(numbers);
+result3.ForEach(Console.WriteLine);
