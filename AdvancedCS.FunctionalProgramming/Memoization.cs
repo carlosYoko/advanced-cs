@@ -49,5 +49,25 @@
             };
         }
 
+        public static Func<TInput, TOutput> Mem<TInput, TOutput>(Func<TInput, TOutput> func)
+        {
+            var cache = new Dictionary<TInput, TOutput>();
+
+            return (key) =>
+            {
+                if (cache.ContainsKey(key))
+                {
+                    Console.WriteLine($"Cacheado: {key}");
+                    return cache[key];
+                }
+
+                Console.WriteLine($"Cacheando por primera vez: {key}");
+                TOutput value = func(key);
+                cache[key] = value;
+
+                return value;
+            };
+        }
+
     }
 }

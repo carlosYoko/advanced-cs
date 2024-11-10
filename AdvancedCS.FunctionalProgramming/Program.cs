@@ -121,3 +121,11 @@ var requestAsync = Memoization.GetUrl(url);
 Console.WriteLine(await requestAsync(1));
 Console.WriteLine(await requestAsync(1));
 Console.WriteLine(await requestAsync(1));
+
+
+// Memoization with generics
+var multX5 = (double x) => x * 5;
+var mem = Memoization.Mem(multX5);
+
+Console.WriteLine(mem(2));
+Console.WriteLine(mem(2));
