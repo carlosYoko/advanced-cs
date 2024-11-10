@@ -113,3 +113,11 @@ var myPow = Memoization.MyPow(2);
 Console.WriteLine(myPow(2));
 Console.WriteLine(myPow(2));
 Console.WriteLine(myPow(2));
+
+
+// Async Memoization 
+var url = "https://jsonplaceholder.typicode.com/posts";
+var requestAsync = Memoization.GetUrl(url);
+Console.WriteLine(await requestAsync(1));
+Console.WriteLine(await requestAsync(1));
+Console.WriteLine(await requestAsync(1));
