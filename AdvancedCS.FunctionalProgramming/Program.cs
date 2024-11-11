@@ -159,3 +159,12 @@ var totalBikePrice = priceBike
                         .MyMap(x => $"El precio de la moto con descuento es: {x}");
 
 Console.WriteLine(totalBikePrice.GetValue());
+
+
+// Maybe Functor
+var numberMFString = MaybeFunctor<int>
+                .Some(8)
+                .MyMap(x => x * 2)
+                .MyMap(x => $"El maybe number es; {x}");
+
+Console.WriteLine(numberMFString.GetValue());
