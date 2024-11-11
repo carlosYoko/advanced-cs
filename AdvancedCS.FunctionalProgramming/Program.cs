@@ -168,3 +168,31 @@ var numberMFString = MaybeFunctor<int>
                 .MyMap(x => $"El maybe number es; {x}");
 
 Console.WriteLine(numberMFString.GetValue());
+
+
+// Monad
+MaybeMonad<int> Div(int num, int div)
+{
+    if (div == 0)
+    {
+        return MaybeMonad<int>.None();
+    }
+
+    return MaybeMonad<int>.Some(num / div);
+}
+
+MaybeMonad<int> Add(int num1, int num2)
+{
+    if (num1 < 0 || num2 < 0)
+    {
+        return MaybeMonad<int>.None();
+    }
+
+    return MaybeMonad<int>.Some(num1 + num2);
+}
+
+var numberMM = MaybeMonad<int>.Some(80)
+    .Bind(x => Div(x, 0))
+    .Bind(x => Add(x, 2));
+
+Console.WriteLine(numberMM);
