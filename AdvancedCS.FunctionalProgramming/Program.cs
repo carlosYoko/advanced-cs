@@ -145,3 +145,17 @@ Console.WriteLine(await memAsync(url + "/1"));
 Console.WriteLine(await memAsync(url + "/1"));
 Console.WriteLine(await memAsync(url + "/1"));
 
+
+// Identity
+var identity = new Identity<int>(23);
+var newIdentity = identity.MyMap<string>(e => $"Es el numero {e}");
+
+var priceBike = new Identity<decimal>(5000);
+var taxBike = 0.21;
+var bikeDiscount = 400;
+var totalBikePrice = priceBike
+                        .MyMap(p => p + (p * tax))
+                        .MyMap(p => p - bikeDiscount)
+                        .MyMap(x => $"El precio de la moto con descuento es: {x}");
+
+Console.WriteLine(totalBikePrice.GetValue());
