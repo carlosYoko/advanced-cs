@@ -116,7 +116,7 @@ Console.WriteLine("Fin del programa");
 
 
 // Parallel.For
-int numberOfFiles = 100;
+/* int numberOfFiles = 100;
 
 Parallel.For(0, numberOfFiles, i =>
 {
@@ -127,3 +127,23 @@ Parallel.For(0, numberOfFiles, i =>
 
     Console.WriteLine($"Archivo '{fileName}' creado por el hilo {Task.CurrentId}");
 });
+*/
+
+
+// Parallel.ForEach
+List<int> ids = new List<int>
+{
+    2, 22, 32, 4, 12, 34, 67, 89, 56, 24
+};
+
+Parallel.ForEach(ids, i =>
+{
+    string fileName = $"fichero_{i}.txt";
+    string content = $"fichero numero: {i}";
+
+    File.WriteAllText(fileName, content);
+
+    Console.WriteLine($"Fichero '{fileName} creado por el hilo: {Task.CurrentId}");
+});
+
+Console.WriteLine("Se han terminado todos los procesos");
