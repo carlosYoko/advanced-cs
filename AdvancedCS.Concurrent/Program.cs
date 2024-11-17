@@ -1,6 +1,4 @@
-﻿using AdvancedCS.Concurrent;
-
-// Task
+﻿// Task
 /* Console.WriteLine("Inicio programa");
 
 var task = Task.Run(async () =>
@@ -69,7 +67,7 @@ Console.WriteLine("Fin de las tareas secuenciales");
 
 
 // WhenAll
-List<Task> tasks = new List<Task>()
+/* List<Task> tasks = new List<Task>()
 {
     Methods.Wait(1000),
     Methods.Wait(2000)
@@ -92,3 +90,25 @@ foreach (double result in resultsTasksDouble)
 {
     Console.WriteLine(result);
 }
+*/
+
+
+// Thread
+Thread thread = new Thread(() =>
+{
+    Console.WriteLine("Inicio");
+
+    Thread.Sleep(5000);
+
+    Console.WriteLine("Fin");
+});
+
+Console.WriteLine("Inicio del programa");
+
+thread.Start();
+
+Console.WriteLine("El progrmaa principal hace otra coas");
+
+thread.Join();
+
+Console.WriteLine("Fin del programa");
