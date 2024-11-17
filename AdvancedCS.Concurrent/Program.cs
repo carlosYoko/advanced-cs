@@ -19,6 +19,7 @@ Console.WriteLine("Algo extra despues");
 Console.WriteLine("Fin programa");
 */
 
+
 // async & awaint
 using AdvancedCS.Concurrent;
 
@@ -28,5 +29,10 @@ var task = Methods.Wait(1000);
 Console.WriteLine("Hago algo mas");
 
 await task;
-
 Console.WriteLine("Fin del programa");
+
+
+// TResult
+var taskResult = Methods.AddAsync(3, 4);
+var number = await taskResult;
+Console.WriteLine(taskResult);

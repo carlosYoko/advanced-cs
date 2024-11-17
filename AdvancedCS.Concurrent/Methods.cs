@@ -11,5 +11,12 @@
             Console.WriteLine("Fin de la espera");
 
         }
+
+        public static async Task<double> AddAsync(double a, double b)
+        {
+            await Task.Delay(1000);
+
+            return a + b;
+        }
     }
 }
