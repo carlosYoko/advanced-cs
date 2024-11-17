@@ -94,7 +94,7 @@ foreach (double result in resultsTasksDouble)
 
 
 // Thread
-Thread thread = new Thread(() =>
+/* Thread thread = new Thread(() =>
 {
     Console.WriteLine("Inicio");
 
@@ -112,3 +112,18 @@ Console.WriteLine("El progrmaa principal hace otra coas");
 thread.Join();
 
 Console.WriteLine("Fin del programa");
+*/
+
+
+// Parallel.For
+int numberOfFiles = 100;
+
+Parallel.For(0, numberOfFiles, i =>
+{
+    string fileName = $"fichero_{i}.txt";
+    string content = $"fichero num: {i}";
+
+    File.WriteAllText(fileName, content);
+
+    Console.WriteLine($"Archivo '{fileName}' creado por el hilo {Task.CurrentId}");
+});
